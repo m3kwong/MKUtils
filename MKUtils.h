@@ -23,6 +23,7 @@
 
 + (NSString *)getSavedDataPathFeedData;
 + (NSString *)getOldSavedDataPathFeedData;
++ (NSString *)getOldBkSavedDataPathFeedData;
 +(void) registerForKeyboardWillShow;
 +(void) removeKeyboardWillShowNotificaiton;
 +(NSString *) getDateTimeString:(NSDate *)now;

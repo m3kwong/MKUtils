@@ -27,6 +27,16 @@
     return pathWithFile;
 }
 
++ (NSString *)getOldBkSavedDataPathFeedData{
+    NSArray *path =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *pathString = [path objectAtIndex:0];
+    NSString *pathWithFile = [NSString stringWithFormat:@"%@/%@",pathString,@"FeedDataFileBackup"];
+    return pathWithFile;
+}
+
+
+
+
 #pragma mark - NSNotifications
 
 +(void) registerForKeyboardWillShow {
