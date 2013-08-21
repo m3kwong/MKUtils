@@ -59,13 +59,16 @@
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
-    [timeFormat setDateFormat:@"HH:mm:ss"];
+    [timeFormat setDateFormat:@"HH:mm"];
     
     NSString *theDate = [dateFormat stringFromDate:now];
     NSString *theTime = [timeFormat stringFromDate:now];
     
-    return [NSString stringWithFormat:@"%@ %@"
-            , theDate, theTime];
+//    return [NSString stringWithFormat:@"%@ %@"
+//            , theDate, theTime];
+    return [NSString stringWithFormat:@"%@"
+            , theTime];
+
 }
 
 #pragma mark - Image Utils
