@@ -61,14 +61,18 @@
     NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
     [timeFormat setDateFormat:@"HH:mm"];
     
-    NSString *theDate = [dateFormat stringFromDate:now];
-    NSString *theTime = [timeFormat stringFromDate:now];
-    
-//    return [NSString stringWithFormat:@"%@ %@"
-//            , theDate, theTime];
-    return [NSString stringWithFormat:@"%@"
-            , theTime];
+    NSDateComponents *comp = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit fromDate:now];
 
+    NSString *theTime = [timeFormat stringFromDate:now];
+    NSString *ampm;
+    if(comp.hour >= 12){
+        ampm = @"PM";
+    }else{
+        ampm = @"AM";
+    }
+    
+    return [NSString stringWithFormat:@"%@%@"
+            , theTime, ampm ];
 }
 
 #pragma mark - Image Utils

@@ -35,4 +35,38 @@
 }
 
 
++(NSDate *)nsdateFromDateComponents:(NSInteger)day
+                              month:(NSInteger)month
+                               year:(NSInteger)year{
+    
+    NSDateComponents *comp = [[NSDateComponents alloc] init];
+    
+    comp.day = day;
+    comp.month = month;
+    comp.year = year;
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDate *date = [cal dateFromComponents:comp];
+    
+    return date;
+}
+
++(NSDate *)nsdateFromDateComponents:(NSDateComponents *)comp{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDate *date = [cal dateFromComponents:comp];
+    
+    return date;
+}
+
+
++(NSDateComponents *)dayMonthYearComponentFromNsdate:(NSDate *)date{
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    
+    NSDateComponents *comp = [cal components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:date];
+
+    return comp;
+}
+
+
+
 @end
